@@ -5,31 +5,27 @@ public class Main {
 		System.out.println("dcp60");
 		
 		int[] testSet1 = {15,5,20,10,35,15,10};
-		gimmeeSum(20, testSet1);
+		SplitAndSumMaskedArray(20, testSet1);
 		
 		int loops = (int) Math.pow(2, testSet1.length);
 		
-		for (int i = 0; i < loops; i++) {	// i represents a bitpattern
-			
-			if (gimmeeSum(i, testSet1)) {
+		for (int i = 0; i < loops; i++) {		
+			if (SplitAndSumMaskedArray(i, testSet1)) {
 				System.out.printf("GOT ONE AT BITMASK: %d\n\n", i);
 			}
 						
 		}
-		
-		
-		
-		
 	}
 	
 	
-	// given an integer representation of a bitmask and an array of integers
-	//  calculate the sum of the integers in the 0's position and the sum
-	//  of the integers in the 1's position and place that in the return array.
-	public static boolean gimmeeSum(int bitMask, int[] ia) {
+	/** given an integer representation of a bitmask and an array of integers
+	 *  calculate the sum of the integers in the 0's position and the sum
+	 * of the integers in the 1's position and place that in the return array.
+	 */
+	 public static boolean SplitAndSumMaskedArray(int bitMask, int[] ia) {
 
-		int sum0 = 0;
-		int sum1 = 0;
+		int sum0 = 0;			// running sum of values represented by 0's in the bitmask
+		int sum1 = 0;			// running sum of values represented by 1's in the bitmask
 		String a0 = "";
 		String a1 = "";
 		
@@ -44,9 +40,6 @@ public class Main {
 			
 		}
 		
-		//System.out.printf("---%d---\n", cnt);
-		
-		
 		if (sum0 == sum1) {
 			System.out.printf("a0=%s\t",a0);
 			System.out.printf("a1=%s\n",a1);
@@ -54,8 +47,7 @@ public class Main {
 		}
 		
 		if (sum0 == sum1) return true;
-		return false;
-		
+		return false;	
 	}
 
 }
